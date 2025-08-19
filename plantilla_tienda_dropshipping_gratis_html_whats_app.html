@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TuMiniTienda — Dropshipping Chile</title>
+  <meta name="description" content="Tienda online simple para dropshipping con pago por WhatsApp. Envíos internacionales y productos seleccionados." />
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --card:#111827;        /* gray-900 */
+      --muted:#94a3b8;       /* slate-400 */
+      --text:#e5e7eb;        /* gray-200 */
+      --brand:#22c55e;       /* green-500 */
+      --brand-2:#38bdf8;     /* sky-400 */
+      --danger:#f43f5e;      /* rose-500 */
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;background:linear-gradient(180deg,#0b1225 0%, #0f172a 60%);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    header{
+      position:sticky;top:0;z-index:50;background:rgba(15,23,42,.85);backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(148,163,184,.15)
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:16px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .brand .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:#0b1225;font-weight:900}
+    .nav a.btn{padding:10px 14px;border-radius:999px;background:var(--brand);color:#08210d;font-weight:700}
+    .nav a.link{opacity:.85}
+
+    .hero{padding:56px 0 28px}
+    .hero .card{background:radial-gradient(1200px 500px at 80% -10%,rgba(34,197,94,.18),transparent 60%),var(--card);border:1px solid rgba(148,163,184,.15);border-radius:calc(var(--radius) + 6px);padding:28px;display:grid;gap:18px}
+    .hero h1{font-size:clamp(28px,4vw,44px);margin:0;line-height:1.1}
+    .hero p{color:var(--muted);margin:0}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(148,163,184,.2);background:#0b1225;color:#e5e7eb}
+    .btn.primary{background:var(--brand);color:#052e12;border-color:transparent;font-weight:800}
+
+    .section{padding:26px 0}
+    .section h2{font-size:clamp(22px,3vw,28px);margin:0 0 16px}
+
+    .grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:16px}
+    @media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+    .card{background:var(--card);border:1px solid rgba(148,163,184,.15);border-radius:var(--radius)}
+    .product{display:grid;grid-template-rows:auto 1fr auto}
+    .img{aspect-ratio:4/3;border-top-left-radius:var(--radius);border-top-right-radius:var(--radius);background:#0b1225;display:grid;place-items:center;overflow:hidden}
+    .img img{width:100%;height:100%;object-fit:cover}
+    .content{padding:14px 14px 6px}
+    .title{font-weight:700;margin:0 0 4px}
+    .desc{color:var(--muted);font-size:14px}
+    .meta{display:flex;align-items:center;justify-content:space-between;padding:0 14px 14px}
+    .price{font-weight:900}
+
+    .badge{position:absolute;top:10px;left:10px;padding:6px 10px;border-radius:999px;background:rgba(56,189,248,.9);color:#081018;font-size:12px;font-weight:800;border:1px solid rgba(148,163,184,.25)}
+    .product .actions{display:flex;gap:10px;padding:0 14px 14px}
+    .product .actions .btn{flex:1;justify-content:center}
+
+    .two-col{display:grid;gap:16px}
+    @media(min-width:900px){.two-col{grid-template-columns:1.2fr .8fr}}
+
+    .list{display:grid;gap:10px;color:var(--muted)}
+    .list li{margin-left:18px}
+
+    footer{padding:40px 0;color:#93a1b2}
+    footer .foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+    .tiny{font-size:12px;color:#93a1b2;opacity:.9}
+    .policy{font-size:14px;color:#cbd5e1}
+    .highlight{color:#a7f3d0}
+    .disclaimer{font-size:12px;color:#cbd5e1;opacity:.8}
+
+    .search{display:flex;gap:8px}
+    .search input{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:#0b1225;color:var(--text)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo">T</div>
+        <div>
+          <div>TuMiniTienda</div>
+          <div class="tiny">Dropshipping • Chile</div>
+        </div>
+      </div>
+      <nav style="display:flex;gap:14px;align-items:center">
+        <a class="link" href="#catalogo">Catálogo</a>
+        <a class="link" href="#envios">Envíos</a>
+        <a class="link" href="#faq">FAQ</a>
+        <a class="btn" id="whatsappTop" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="card">
+        <h1>Tu tienda online de <span class="highlight">ofertas seleccionadas</span> con envío a todo Chile</h1>
+        <p>Compra segura por WhatsApp. Pagas cuando confirmas, nosotros gestionamos el envío directo desde el proveedor (modelo <b>dropshipping</b>).</p>
+        <div class="cta">
+          <a class="btn primary" href="#catalogo">Ver catálogo</a>
+          <a class="btn" href="#como-funciona">¿Cómo funciona?</a>
+        </div>
+        <div class="search">
+          <input id="searchInput" placeholder="Busca: audífonos, smartwatch, lámpara..." />
+          <a class="btn" href="#catalogo" id="clearSearch">Limpiar</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section">
+      <h2>Catálogo</h2>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <section id="como-funciona" class="section two-col">
+      <div class="card" style="padding:18px">
+        <h2>¿Cómo funciona?</h2>
+        <ul class="list">
+          <li>Elige tu producto y contáctanos por WhatsApp para confirmar precio y stock.</li>
+          <li>Pagas vía transferencia, MercadoPago o método acordado.</li>
+          <li>Procesamos el pedido y el proveedor lo envía <b>directo a tu dirección</b>.</li>
+          <li>Recibes seguimiento y soporte hasta la entrega.</li>
+        </ul>
+      </div>
+      <div class="card" style="padding:18px">
+        <h2 id="envios">Política de envíos</h2>
+        <div class="policy">
+          Envíos internacionales estimados entre <b>10 a 20 días hábiles</b> según producto y courier. Productos nacionales 2–6 días. Entregamos número de seguimiento en todos los casos.
+        </div>
+        <p class="disclaimer">*Los plazos pueden variar por aduana y logística del proveedor. Te mantendremos informado/a.</p>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <h2>Preguntas frecuentes</h2>
+      <div class="grid">
+        <div class="card" style="padding:16px">
+          <b>¿Es seguro comprar?</b>
+          <p class="policy">Sí. Confirmamos tu pedido por WhatsApp y te enviamos comprobante y seguimiento. Si hay problemas, gestionamos devolución o reemplazo.</p>
+        </div>
+        <div class="card" style="padding:16px">
+          <b>¿Qué pasa si no me llega?</b>
+          <p class="policy">Si el pedido no llega en el plazo máximo comprometido, te devolvemos el dinero o reprogramamos el envío, a tu elección.</p>
+        </div>
+        <div class="card" style="padding:16px">
+          <b>¿Puedo pagar contra entrega?</b>
+          <p class="policy">Por ahora no. Trabajamos con transferencia o plataformas de pago antes de procesar el pedido.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <div class="brand" style="gap:8px">
+          <div class="logo">T</div>
+          <div>TuMiniTienda</div>
+        </div>
+        <div class="tiny">© <span id="year"></span> TuMiniTienda. Todos los derechos reservados.</div>
+        <div class="disclaimer">Trabajamos bajo el modelo <b>dropshipping</b>: algunos productos se envían directamente desde el fabricante o bodega.</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn" id="whatsappFoot" target="_blank" rel="noopener">Escríbenos</a>
+        <a class="btn" href="#">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ================== CONFIGURA AQUÍ TU NEGOCIO ==================
+    const STORE = {
+      name: "TuMiniTienda",
+      whatsapp: "56912345678", // Reemplaza por tu número con código de país (Chile: 56)
+      instagram: "https://instagram.com/tunegocio", // opcional
+      moneda: "CLP",
+    };
+
+    // Catálogo de ejemplo (edítalo con tus productos reales)
+    const products = [
+      {
+        id: 1,
+        title: "Smartwatch deportivo",
+        price: 17990,
+        img: "https://via.placeholder.com/800x600?text=Smartwatch",
+        description: "Monitor de ritmo, notificaciones y batería de 7 días.",
+        badge: "Top ventas",
+        shipping: "10–20 días hábiles",
+      },
+      {
+        id: 2,
+        title: "Audífonos Bluetooth",
+        price: 12990,
+        img: "https://via.placeholder.com/800x600?text=Audifonos+BT",
+        description: "Cancelación pasiva y estuche de carga.",
+        shipping: "10–20 días hábiles",
+      },
+      {
+        id: 3,
+        title: "Lámpara LED táctil",
+        price: 9990,
+        img: "https://via.placeholder.com/800x600?text=Lampara+LED",
+        description: "Luz cálida y fría con 3 niveles.",
+        shipping: "Envío nacional 2–6 días",
+      },
+    ];
+    // ==============================================================
+
+    const $ = (s, d=document) => d.querySelector(s);
+    const $$ = (s, d=document) => Array.from(d.querySelectorAll(s));
+
+    const formatPrice = new Intl.NumberFormat('es-CL', { style:'currency', currency: STORE.moneda });
+
+    function whatsAppLink(text){
+      const base = `https://wa.me/${STORE.whatsapp}`;
+      const msg = encodeURIComponent(text);
+      return `${base}?text=${msg}`;
+    }
+
+    function renderProducts(list){
+      const grid = $('#grid');
+      grid.innerHTML = '';
+      list.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'card product';
+        card.innerHTML = `
+          <div class="img"><img src="${p.img}" alt="${p.title}"><span class="badge">${p.badge ?? ''}</span></div>
+          <div class="content">
+            <h3 class="title">${p.title}</h3>
+            <p class="desc">${p.description}</p>
+          </div>
+          <div class="meta">
+            <div class="price">${formatPrice.format(p.price)}</div>
+            <div class="tiny">${p.shipping ?? ''}</div>
+          </div>
+          <div class="actions">
+            <a class="btn primary" target="_blank" rel="noopener"
+              href="${whatsAppLink(`Hola, me interesa *${p.title}* (${formatPrice.format(p.price)}). ¿Hay stock?`) }">Comprar por WhatsApp</a>
+            <a class="btn" target="_blank" rel="noopener" href="#catalogo">Detalles</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function init(){
+      // Branding
+      document.title = `${STORE.name} — Dropshipping Chile`;
+      $$('.brand div:nth-child(2)')?.forEach?.(() => {});
+      $$('.brand').forEach(el => {
+        const label = el.querySelector('div:last-child');
+        if(label) label.textContent = STORE.name;
+      });
+      $('.logo').textContent = STORE.name.slice(0,1).toUpperCase();
+
+      // WhatsApp buttons
+      const message = `Hola, quiero ayuda en ${STORE.name}`;
+      $('#whatsappTop').href = whatsAppLink(message);
+      $('#whatsappTop').textContent = 'WhatsApp';
+      $('#whatsappFoot').href = whatsAppLink(message);
+
+      // Year
+      $('#year').textContent = new Date().getFullYear();
+
+      // Render catalog
+      renderProducts(products);
+
+      // Search
+      const input = $('#searchInput');
+      input.addEventListener('input', () => {
+        const q = input.value.toLowerCase().trim();
+        const filtered = products.filter(p => [p.title,p.description].join(' ').toLowerCase().includes(q));
+        renderProducts(filtered);
+      });
+      $('#clearSearch').addEventListener('click', () => {
+        input.value='';
+        renderProducts(products);
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>
